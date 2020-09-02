@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="../stylesheets/style.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css" integrity="sha384-HzLeBuhoNPvSl5KYnjx0BT+WB0QEEqLprO+NBkkk5gbc67FTaL7XIGa2w1L0Xbgc" crossorigin="anonymous">
+</head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+
+ $(document).ready(function(){
+   $("#plusicons").click(function(){
+    $("#modal").show();
+  });
+});
+
+$(document).ready(function(){
+  $("#cross").click(function(){
+    $("#modal").hide();
+  });
+});
+</script>
+<body>
+
+<div id="modal">
+   <div id="filename"> <h3>File Name</h3>
+   <a href="#"><i id="cross" class="fa fa-plus"></i></a>
+  </div>
+  <form action="/filecreation" method="post">
+    <input type="text" placeholder="filename" name="filename">
+    <input id="submitbutton" type="submit">
+  </form>
+</div>
+
+  <div id="back">
+    <div id="backleft">
+      <h2> <span> Folders</span> <a href="#"> <i id="plusicons" class="fas fa-plus"></i></a> 
+        <a href="/"><i class="fas fa-redo"></i></a>
+        </h2>
+      <h3> <i class="far fa-folder"></i> Uploads</h3>
+      <ul>
+        <% files.forEach(function(file){  %>
+           <a href=<%= '/fileopen/'+file %>><li><%= file %></li></a>
+        <%   }) %>
+      </ul>
+    </div>
+    <div id="backright">
+      <div id="backrighttop">
+          <div id="backrighttopone">
+          </div>
+          <div id="backrighttoptwo">
+            
+          </div>
+      </div>
+      <div id="backrightbtm">
+
+        <h1>Custom Terminal Devloped By Mr. Rishabh </h1>
+        <p><i class="fa fa-less-than"></i>  <%= action %></p>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
